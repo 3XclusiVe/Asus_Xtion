@@ -139,7 +139,7 @@ public class UserTracker extends Component
     private BufferedImage bimg;
     int width, height;
     
-    private final String SAMPLE_XML_FILE = "C:/Program Files/OpenNI_1/Data/SamplesConfig.xml";
+    private final String SAMPLE_XML_FILE = "SamplesConfig.xml";
     public UserTracker()
     {
 
