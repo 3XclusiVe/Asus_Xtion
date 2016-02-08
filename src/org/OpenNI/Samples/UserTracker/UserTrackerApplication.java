@@ -29,6 +29,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 import org.OpenNI.Point3D;
 import org.OpenNI.SkeletonJoint;
@@ -80,8 +81,22 @@ public class UserTrackerApplication {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("wefqwf");
-				GestureRecognizerComponent.scanVectors();
+				if(SwingUtilities.isLeftMouseButton(arg0)) {
+					System.out.println("left button(stay)");
+					GestureRecognizerComponent.scanVectors("stay");
+				}
+				else if(SwingUtilities.isRightMouseButton(arg0)) {
+					System.out.println("right button(seat)");
+					GestureRecognizerComponent.scanVectors("seat");
+				}
+				else 
+				{
+					System.out.println("lie");
+					GestureRecognizerComponent.scanVectors("lie");
+				}
+				
+				
+				
 			}
 
 			@Override

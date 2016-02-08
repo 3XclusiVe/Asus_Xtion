@@ -1,0 +1,65 @@
+@relation gesture
+
+@attribute neckX numeric
+@attribute neckY numeric
+@attribute neckZ numeric
+
+@attribute leftShoulderX numeric
+@attribute leftShoulderY numeric
+@attribute leftShoulderZ numeric
+
+@attribute leftElbowX numeric
+@attribute leftElbowY numeric
+@attribute leftElbowZ numeric
+
+@attribute leftHandX numeric
+@attribute leftHandY numeric
+@attribute leftHandZ numeric
+
+@attribute rightShoulderX numeric
+@attribute rightShoulderY numeric
+@attribute rightShoulderZ numeric
+
+@attribute rightElbowX numeric
+@attribute rightElbowY numeric
+@attribute rightElbowZ numeric
+
+@attribute rightHandX numeric
+@attribute rightHandY numeric
+@attribute rightHandZ numeric
+
+@attribute leftWingX numeric
+@attribute leftWingY numeric
+@attribute leftWingZ numeric
+
+@attribute rightSideX numeric
+@attribute rightSideY numeric
+@attribute rightSideZ numeric
+
+@attribute rightKneeX numeric
+@attribute rightKneeY numeric
+@attribute rightKneeZ numeric
+
+@attribute footKneeX numeric
+@attribute footKneeY numeric
+@attribute footKneeZ numeric
+
+@attribute rightWingX numeric
+@attribute rightWingY numeric
+@attribute rightWingZ numeric
+
+@attribute leftSideX numeric
+@attribute leftSideY numeric
+@attribute leftSideZ numeric
+
+@attribute leftKneeX numeric
+@attribute leftKneeY numeric
+@attribute leftKneeZ numeric
+
+@attribute leftFootX numeric
+@attribute leftFootY numeric
+@attribute leftFootZ numeric
+
+@attribute state {stay, seat, lie}
+
+@data

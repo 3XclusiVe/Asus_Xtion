@@ -28,6 +28,14 @@ import java.util.HashMap;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 public class GestureRecognizer extends Component
 {
@@ -506,30 +514,91 @@ public class GestureRecognizer extends Component
    	Vector3D leftKnee = null;
    	Vector3D leftFoot = null;
     
-    public void scanVectors() {
-    	System.out.println(neckVector);
-    	System.out.println(leftShoulder);
-    	System.out.println(leftElbow);
-    	System.out.println(leftHand);
-    	System.out.println(rightShoulder);
-    	System.out.println(rightElbow);
-    	System.out.println(rightHand);
-    	System.out.println(leftWing);
-    	System.out.println(rightSide);
-    	System.out.println(rightKnee);
-    	System.out.println(footKnee);
+    public void scanVectors(String pose) {
+    	write("output.arff" ,neckVector.toString());
+    	write("output.arff" ,leftShoulder.toString());
+    	write("output.arff" ,leftElbow.toString());
+    	write("output.arff" ,leftHand.toString());
+    	write("output.arff" ,rightShoulder.toString());
+    	write("output.arff" ,rightElbow.toString());
+    	write("output.arff" ,rightHand.toString());
+    	write("output.arff" ,leftWing.toString());
+    	write("output.arff" ,rightSide.toString());
+    	write("output.arff" ,rightKnee.toString());
+    	write("output.arff" ,footKnee.toString());
+    	write("output.arff" ,rightWing.toString());
+    	write("output.arff" ,leftSide.toString());
+    	write("output.arff" ,leftKnee.toString());
+    	write("output.arff" ,leftFoot.toString());
+    	write("output.arff" ,pose);
+    	write("output.arff" ,"\n");
     	
-    	System.out.println(rightWing);
-    	System.out.println(leftSide);
-    	System.out.println(leftKnee);
-    	System.out.println(leftFoot);
+    	System.out.print(neckVector);
+    	System.out.print(leftShoulder);
+    	System.out.print(leftElbow);
+    	System.out.print(leftHand);
+    	System.out.print(rightShoulder);
+    	System.out.print(rightElbow);
+    	System.out.print(rightHand);
+    	System.out.print(leftWing);
+    	System.out.print(rightSide);
+    	System.out.print(rightKnee);
+    	System.out.print(footKnee);
     	
+    	System.out.print(rightWing);
+    	System.out.print(leftSide);
+    	System.out.print(leftKnee);
+    	System.out.print(leftFoot);
+    	System.out.println();	
     }
+    
+    public static void write(String fileName, String text) {
+        File file = new File(fileName);
+     
+        try {
+            if(!file.exists()){
+                file.createNewFile();
+                File header = new File("header.txt");
+                copyFile(header, file);
+            }
+  
+            FileWriter out = new FileWriter(file.getAbsoluteFile(), true);
+     
+            try {
+                
+                out.write(text);
+            } finally {
+                out.close();
+            }
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private static void copyFile(File source, File dest) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+
+
     
     
     private Vector3D normalization(Vector3D vector) {
     	
     	vector = vector.getNormalizedVector();
+    	
     	vector.multiply(50f);
     	
     	return vector;

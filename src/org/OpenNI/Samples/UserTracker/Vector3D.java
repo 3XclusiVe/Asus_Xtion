@@ -49,9 +49,9 @@ public class Vector3D {
 	
 	@Override
 	public String toString() {
-		return new String(	mVectorCoordinates.getX() + ":" + 
-							mVectorCoordinates.getY() + ":" +
-							mVectorCoordinates.getZ());
+		return new String(	mVectorCoordinates.getX() + "," + 
+							mVectorCoordinates.getY() + "," +
+							mVectorCoordinates.getZ()) + ",";
 		
 	}
 	
